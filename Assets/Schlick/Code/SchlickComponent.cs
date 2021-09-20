@@ -4,10 +4,10 @@ using UnityEngine;
 public class SchlickComponent : MonoBehaviour
 {
     [SerializeField][Range(0f, 16f)]
-    private float slope;
+    private float slope = 1f;
 
     [SerializeField][Range(0f, 1f)]
-    private float threshold;
+    private float threshold = 0.5f;
 
     [SerializeField]
     private bool showGizmo;
