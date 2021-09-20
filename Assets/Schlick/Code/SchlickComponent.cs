@@ -28,12 +28,13 @@ public class SchlickComponent : MonoBehaviour
         
         const int count = 25;
         const float increment = 1f / (count - 1);
-        float startX = transform.position.x + gizmoXOffset;
-        float startY = transform.position.y + gizmoYOffset;
-        float z = transform.position.z;
+        var position = transform.position;
+        float startX = position.x + gizmoXOffset;
+        float startY = position.y + gizmoYOffset;
+        float z = position.z;
         
         Gizmos.color = Color.gray;
-        Gizmos.DrawCube(new Vector3(transform.position.x, startY+0.5f, z), Vector3.one);
+        Gizmos.DrawCube(new Vector3(position.x, startY + 0.5f, z), Vector3.one);
         
         Gizmos.color = Color.magenta;
         var points = new List<float>(count);
