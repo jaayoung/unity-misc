@@ -138,25 +138,25 @@ namespace Noise
         public static float Get1dNoiseZeroToOne( int index, uint seed = 0 )
         {
             const double ONE_OVER_MAX_UINT = (1.0 / (double) 0xFFFFFFFF);
-            return (float) (ONE_OVER_MAX_UINT * (double) SquirrelNoise5(index, seed));
+            return (float) (ONE_OVER_MAX_UINT * SquirrelNoise5(index, seed));
         }
 
         public static float Get2dNoiseZeroToOne( int indexX, int indexY, uint seed = 0 )
         {
             const double ONE_OVER_MAX_UINT = (1.0 / (double) 0xFFFFFFFF);
-            return (float) (ONE_OVER_MAX_UINT * (double) Get2dNoiseUint(indexX, indexY, seed));
+            return (float) (ONE_OVER_MAX_UINT * Get2dNoiseUint(indexX, indexY, seed));
         }
 
         public static float Get3dNoiseZeroToOne( int indexX, int indexY, int indexZ, uint seed = 0 )
         {
             const double ONE_OVER_MAX_UINT = (1.0 / (double) 0xFFFFFFFF);
-            return (float) (ONE_OVER_MAX_UINT * (double) Get3dNoiseUint(indexX, indexY, indexZ, seed));
+            return (float) (ONE_OVER_MAX_UINT * Get3dNoiseUint(indexX, indexY, indexZ, seed));
         }
 
         public static float Get4dNoiseZeroToOne( int indexX, int indexY, int indexZ, int indexT, uint seed = 0 )
         {
             const double ONE_OVER_MAX_UINT = (1.0 / (double) 0xFFFFFFFF);
-            return (float) (ONE_OVER_MAX_UINT * (double) Get4dNoiseUint(indexX, indexY, indexZ, indexT, seed));
+            return (float) (ONE_OVER_MAX_UINT * Get4dNoiseUint(indexX, indexY, indexZ, indexT, seed));
         }
 
         #endregion
@@ -165,25 +165,25 @@ namespace Noise
         public static float Get1dNoiseNegOneToOne( int index, uint seed = 0 )
         {
             const double ONE_OVER_MAX_INT = (1.0 / (double) 0x7FFFFFFF);
-            return (float) (ONE_OVER_MAX_INT * (double) (int) SquirrelNoise5(index, seed));
+            return (float) (ONE_OVER_MAX_INT * (int) SquirrelNoise5(index, seed));
         }
         
         public static float Get2dNoiseNegOneToOne( int indexX, int indexY, uint seed = 0 )
         {
             const double ONE_OVER_MAX_INT = (1.0 / (double) 0x7FFFFFFF);
-            return (float) (ONE_OVER_MAX_INT * (double) (int) Get2dNoiseUint(indexX, indexY, seed));
+            return (float) (ONE_OVER_MAX_INT * (int) Get2dNoiseUint(indexX, indexY, seed));
         }
         
         public static float Get3dNoiseNegOneToOne( int indexX, int indexY, int indexZ, uint seed = 0 )
         {
             const double ONE_OVER_MAX_INT = (1.0 / (double) 0x7FFFFFFF);
-            return (float) (ONE_OVER_MAX_INT * (double) (int) Get3dNoiseUint(indexX, indexY, indexZ, seed));
+            return (float) (ONE_OVER_MAX_INT * (int) Get3dNoiseUint(indexX, indexY, indexZ, seed));
         }
         
         public static float Get4dNoiseNegOneToOne( int indexX, int indexY, int indexZ, int indexT, uint seed = 0 )
         {
             const double ONE_OVER_MAX_INT = (1.0 / (double) 0x7FFFFFFF);
-            return (float) (ONE_OVER_MAX_INT * (double) (int) Get4dNoiseUint(indexX, indexY, indexZ, indexT, seed));
+            return (float) (ONE_OVER_MAX_INT * (int) Get4dNoiseUint(indexX, indexY, indexZ, indexT, seed));
         }
         #endregion
     }
