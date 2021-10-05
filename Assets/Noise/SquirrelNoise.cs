@@ -35,7 +35,7 @@
 
 namespace Noise
 {
-    public class SquirrelNoise
+    public static class SquirrelNoise
     {
 
 //-----------------------------------------------------------------------------------------------
@@ -85,7 +85,7 @@ namespace Noise
         //	(for me) a statistically acceptable degree.  I believe the worst-case here is in the amount
         //	of influence input position bit #30 has on output noise bit #0 (49.99%, vs. 50% ideal).
         //
-        public uint SquirrelNoise5(int positionX, uint seed)
+        public static uint SquirrelNoise5(int positionX, uint seed)
         {
             const uint SQ5_BIT_NOISE1 = 0xd2a80a3f; // 11010010101010000000101000111111
             const uint SQ5_BIT_NOISE2 = 0xa884f197; // 10101000100001001111000110010111
@@ -108,25 +108,25 @@ namespace Noise
             return mangledBits;
         }
 
-        public uint Get1dNoiseUint( int positionX, uint seed = 0 )
+        public static uint Get1dNoiseUint( int positionX, uint seed = 0 )
         {
             return SquirrelNoise5(positionX, seed);
         }
         
-        public uint Get2dNoiseUint( int indexX, int indexY, uint seed = 0 )
+        public static uint Get2dNoiseUint( int indexX, int indexY, uint seed = 0 )
         {
             const int PRIME_NUMBER = 198491317; // Large prime number with non-boring bits
             return SquirrelNoise5(indexX + (PRIME_NUMBER * indexY), seed);
         }
 
-        public uint Get3dNoiseUint( int indexX, int indexY, int indexZ, uint seed = 0 )
+        public static uint Get3dNoiseUint( int indexX, int indexY, int indexZ, uint seed = 0 )
         {
             const int PRIME1 = 198491317; // Large prime number with non-boring bits
             const int PRIME2 = 6542989; // Large prime number with distinct and non-boring bits
             return SquirrelNoise5(indexX + (PRIME1 * indexY) + (PRIME2 * indexZ), seed);
         }
 
-        public uint Get4dNoiseUint( int indexX, int indexY, int indexZ, int indexT, uint seed = 0 )
+        public static uint Get4dNoiseUint( int indexX, int indexY, int indexZ, int indexT, uint seed = 0 )
         {
             const int PRIME1 = 198491317; // Large prime number with non-boring bits
             const int PRIME2 = 6542989; // Large prime number with distinct and non-boring bits
@@ -135,25 +135,25 @@ namespace Noise
         }
 
         #region Zero To One Functions
-        public float Get1dNoiseZeroToOne( int index, uint seed = 0 )
+        public static float Get1dNoiseZeroToOne( int index, uint seed = 0 )
         {
             const double ONE_OVER_MAX_UINT = (1.0 / (double) 0xFFFFFFFF);
             return (float) (ONE_OVER_MAX_UINT * (double) SquirrelNoise5(index, seed));
         }
 
-        public float Get2dNoiseZeroToOne( int indexX, int indexY, uint seed = 0 )
+        public static float Get2dNoiseZeroToOne( int indexX, int indexY, uint seed = 0 )
         {
             const double ONE_OVER_MAX_UINT = (1.0 / (double) 0xFFFFFFFF);
             return (float) (ONE_OVER_MAX_UINT * (double) Get2dNoiseUint(indexX, indexY, seed));
         }
 
-        public float Get3dNoiseZeroToOne( int indexX, int indexY, int indexZ, uint seed = 0 )
+        public static float Get3dNoiseZeroToOne( int indexX, int indexY, int indexZ, uint seed = 0 )
         {
             const double ONE_OVER_MAX_UINT = (1.0 / (double) 0xFFFFFFFF);
             return (float) (ONE_OVER_MAX_UINT * (double) Get3dNoiseUint(indexX, indexY, indexZ, seed));
         }
 
-        public float Get4dNoiseZeroToOne( int indexX, int indexY, int indexZ, int indexT, uint seed = 0 )
+        public static float Get4dNoiseZeroToOne( int indexX, int indexY, int indexZ, int indexT, uint seed = 0 )
         {
             const double ONE_OVER_MAX_UINT = (1.0 / (double) 0xFFFFFFFF);
             return (float) (ONE_OVER_MAX_UINT * (double) Get4dNoiseUint(indexX, indexY, indexZ, indexT, seed));
@@ -162,25 +162,25 @@ namespace Noise
         #endregion
 
         #region Negative One To One Functions
-        public float Get1dNoiseNegOneToOne( int index, uint seed = 0 )
+        public static float Get1dNoiseNegOneToOne( int index, uint seed = 0 )
         {
             const double ONE_OVER_MAX_INT = (1.0 / (double) 0x7FFFFFFF);
             return (float) (ONE_OVER_MAX_INT * (double) (int) SquirrelNoise5(index, seed));
         }
         
-        public float Get2dNoiseNegOneToOne( int indexX, int indexY, uint seed = 0 )
+        public static float Get2dNoiseNegOneToOne( int indexX, int indexY, uint seed = 0 )
         {
             const double ONE_OVER_MAX_INT = (1.0 / (double) 0x7FFFFFFF);
             return (float) (ONE_OVER_MAX_INT * (double) (int) Get2dNoiseUint(indexX, indexY, seed));
         }
         
-        public float Get3dNoiseNegOneToOne( int indexX, int indexY, int indexZ, uint seed = 0 )
+        public static float Get3dNoiseNegOneToOne( int indexX, int indexY, int indexZ, uint seed = 0 )
         {
             const double ONE_OVER_MAX_INT = (1.0 / (double) 0x7FFFFFFF);
             return (float) (ONE_OVER_MAX_INT * (double) (int) Get3dNoiseUint(indexX, indexY, indexZ, seed));
         }
         
-        public float Get4dNoiseNegOneToOne( int indexX, int indexY, int indexZ, int indexT, uint seed = 0 )
+        public static float Get4dNoiseNegOneToOne( int indexX, int indexY, int indexZ, int indexT, uint seed = 0 )
         {
             const double ONE_OVER_MAX_INT = (1.0 / (double) 0x7FFFFFFF);
             return (float) (ONE_OVER_MAX_INT * (double) (int) Get4dNoiseUint(indexX, indexY, indexZ, indexT, seed));
