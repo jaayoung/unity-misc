@@ -4,20 +4,8 @@ namespace RandomNumberGeneration
 {
     public class NoiseRandom
     {
-        private uint seed;
-        private int position;
-
-        public uint Seed
-        {
-            get => seed;
-            set => seed = value;
-        }
-
-        public int Position
-        {
-            get => position;
-            set => position = value;
-        }
+        public uint seed;
+        public int position;
 
         public NoiseRandom(uint seed = 0, int position = 0)
         {
