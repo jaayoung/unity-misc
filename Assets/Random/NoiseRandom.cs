@@ -38,7 +38,9 @@ namespace RandomNumberGeneration
 
         public float NextFloat01()
         {
-            return SquirrelNoise.Get1dNoiseZeroToOne(position, seed);
+            var returnVal = SquirrelNoise.Get1dNoiseZeroToOne(position, seed);
+            position += 1;
+            return returnVal;
         }
 
         public float Range(float min, float max)
