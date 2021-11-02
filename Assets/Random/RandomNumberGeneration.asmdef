@@ -1,0 +1,16 @@
+{
+    "name": "RandomNumberGeneration",
+    "rootNamespace": "",
+    "references": [
+        "GUID:dbba36bf22aab42e9872f4f98c76efb7"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
