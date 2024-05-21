@@ -19,6 +19,11 @@ namespace RandomNumberGeneration
             this.position = position;
         }
 
+        public override string ToString()
+        {
+            return $"seed {seed.ToString()}, position {position.ToString()}";
+        }
+
         public uint Next()
         {
             var ret = SquirrelNoise.SquirrelNoise5(position, seed);
@@ -45,16 +50,14 @@ namespace RandomNumberGeneration
 
         public float Range(float min, float max)
         {
-            var next = Next();
-            var perc = (float) next / uint.MaxValue;
+            float perc = NextFloat01();
             var offset = perc * (max - min);
             return min + offset;
         }
 
         public int Range(int min, int max)
         {
-            var next = Next();
-            var perc = (float) next / uint.MaxValue;
+            float perc = NextFloat01();
             var offset = (int) (perc * (max - min));
             return min + offset;
         }
